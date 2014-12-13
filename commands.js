@@ -113,7 +113,7 @@ exports.commands = {
 		} else {
 			var text = '/pm ' + by + ', ';
 		}
-		text += 'If you want to play chess go this link: http://en.lichess.org/)';
+		text += 'If you want to play chess go this link: http://en.lichess.org/';
 		this.say(con, room, text);
 	},
 	custom: function(arg, by, room, con) {
