@@ -106,6 +106,15 @@ exports.commands = {
 		}
 		text += '**Source of AA Bot** can be found here: https://github.com/Bryan-0/AA-Bot';
 		this.say(con, room, text); 
+	}, 
+	chessgame: function(arg, by, room, con) {
+		if (this.hasRank(by, '#~') || room.charAt(0) === ',') {
+			var text = '';
+		} else {
+			var text = '/pm ' + by + ', ';
+		}
+		text += 'If you want to play chess go this link: http://en.lichess.org/)';
+		this.say(con, room, text);
 	},
 	custom: function(arg, by, room, con) {
 		if (!this.hasRank(by, '~')) return false;
