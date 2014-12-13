@@ -71,7 +71,7 @@ exports.commands = {
 		if (!this.hasRank(by, '~#&')) return true;
 		this.say(con, room, "/leave "+arg+"");
 	},  
-	lockserver: function(arg, by, room, con) {
+	lockserver: function(arg, by, room, con) {   //this commands can only be used on other servers not on main.
 		if (this.hasRank(by, '#~') || room.charAt(0) === ',') {
 			var text = '/lockdown ';
 		} else {
@@ -80,7 +80,7 @@ exports.commands = {
 		text += '';
 		this.say(con, room, text); 
 	}, 
-	killserver: function(arg, by, room, con) {
+	killserver: function(arg, by, room, con) {   //this commands can only be used on other servers not on main.
 		if (this.hasRank(by, '#~') || room.charAt(0) === ',') {
 			var text = '/kill ';
 		} else {
@@ -95,7 +95,16 @@ exports.commands = {
 		} else {
 			var text = '/pm ' + by + ', ';
 		}
-		text += 'Have a **Suggestion** to bot? visit this link : ';
+	        text += 'Have a **Suggestion** to bot? send me a email here: "abryan172@gmail.com".';
+		this.say(con, room, text); 
+	}, 
+	source: function(arg, by, room, con) {
+		if (this.hasRank(by, '#~') || room.charAt(0) === ',') {
+			var text = '';
+		} else {
+			var text = '/pm ' + by + ', ';
+		}
+		text += '**Source of AA Bot** can be found here: https://github.com/Bryan-0/AA-Bot';
 		this.say(con, room, text); 
 	},
 	custom: function(arg, by, room, con) {
