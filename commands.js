@@ -115,6 +115,15 @@ exports.commands = {
 		}
 		text += 'If you want to play chess go this link: http://en.lichess.org/';
 		this.say(con, room, text);
+	}, 
+	chessinfo: function(arg, by, room, con) {
+		if (this.hasRank(by, '#~') || room.charAt(0) === ',') {
+			var text = '';
+		} else {
+			var text = '/pm ' + by + ', ';
+		}
+		text += 'Chess is a two-player strategy board game played on a chessboard, a checkered gameboard with 64 squares arranged in an eight-by-eight grid.if you want more information about [[chess]] <---click there.';
+		this.say(con, room, text);
 	},
 	custom: function(arg, by, room, con) {
 		if (!this.hasRank(by, '~')) return false;
