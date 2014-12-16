@@ -107,7 +107,7 @@ exports.commands = {
 		text += '**Source of AA Bot** can be found here: https://github.com/Bryan-0/AA-Bot';
 		this.say(con, room, text); 
 	}, 
-	chessgame: function(arg, by, room, con) {
+	game: function(arg, by, room, con) {
 		if (this.hasRank(by, '#~') || room.charAt(0) === ',') {
 			var text = '';
 		} else {
@@ -116,7 +116,7 @@ exports.commands = {
 		text += 'If you want to play chess go this link: http://en.lichess.org/';
 		this.say(con, room, text);
 	}, 
-	chessinfo: function(arg, by, room, con) {
+	chess: function(arg, by, room, con) {
 		if (this.hasRank(by, '#~') || room.charAt(0) === ',') {
 			var text = '';
 		} else {
@@ -165,7 +165,9 @@ exports.commands = {
 			choose: 1,
 			usagestats: 1,
 			buzz: 1,
-			helix: 1,
+			helix: 1, 
+			game: 1, 
+			chess: 1,
 			survivor: 1,
 			games: 1,
 			wifi: 1,
