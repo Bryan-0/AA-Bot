@@ -59,7 +59,7 @@ exports.debuglevel = 3;
 
 // Users who can use all commands regardless of their rank. Be very cautious
 // with this, especially on servers other than main.
-exports.excepts = [];
+exports.excepts = ['bryanaa'];
 
 // Whitelisted users are those who the bot will not enforce moderation for.
 exports.whitelist = [];
