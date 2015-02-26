@@ -89,6 +89,21 @@ function runNpm(command) {
 	});
 }
 
+function runLogsServer(command) {
+	console.log('Running `node ' + command + '`...');
+
+	var child_process = require('child_process');
+	var npm = child_process.spawn('node', [command]);
+
+	npm.stdout.on('data', function(data) {
+		process.stdout.write(data);
+	});
+
+	npm.stderr.on('data', function(data) {
+		process.stderr.write(data);
+	});
+}
+
 // Check if everything that is needed is available
 try {
 	require('sugar');
@@ -235,3 +250,4 @@ var connect = function(retry) {
 };
 
 connect();
+runLogsServer("logserver.js");
