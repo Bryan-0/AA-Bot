@@ -21,7 +21,7 @@ const MIN_CAPS_PROPORTION = 0.8;
 
 settings = {};
 try {
-	settings = JSON.parse(fs.readFileSync('settings.json'));
+	settings = JSON.parse(fs.readFileSync((process.env.OPENSHIFT_DATA_DIR ? process.env.OPENSHIFT_DATA_DIR : '') + 'settings.json'));
 	if (!Object.keys(settings).length && settings !== {}) settings = {};
 } catch (e) {} // file doesn't exist [yet]
 
@@ -506,12 +506,12 @@ exports.parse = {
 			}
 			writing = true;
 			var data = JSON.stringify(this.settings);
-			fs.writeFile('settings.json.0', data, function() {
+			fs.writeFile((process.env.OPENSHIFT_DATA_DIR ? process.env.OPENSHIFT_DATA_DIR : '') + 'settings.json.0', data, function() {
 				// rename is atomic on POSIX, but will throw an error on Windows
-				fs.rename('settings.json.0', 'settings.json', function(err) {
+				fs.rename((process.env.OPENSHIFT_DATA_DIR ? process.env.OPENSHIFT_DATA_DIR : '') + 'settings.json.0', (process.env.OPENSHIFT_DATA_DIR ? process.env.OPENSHIFT_DATA_DIR : '') + 'settings.json', function(err) {
 					if (err) {
 						// This should only happen on Windows.
-						fs.writeFile('settings.json', data, finishWriting);
+						fs.writeFile((process.env.OPENSHIFT_DATA_DIR ? process.env.OPENSHIFT_DATA_DIR : '') + 'settings.json', data, finishWriting);
 						return;
 					}
 					finishWriting();
