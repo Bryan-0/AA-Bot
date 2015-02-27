@@ -94,17 +94,6 @@ exports.commands = {
 		if (!this.hasRank(by, '~#&')) return true;
 		this.say(con, room, "/leave "+arg+"");
 	},   
-	sgb: 'suggestionbot', 
-	bs: 'suggestionbot',
-	suggestionbot: function(arg, by, room, con) {
-		if (this.hasRank(by, '#~') || room.charAt(0) === ',') {
-			var text = '';
-		} else {
-			var text = '/pm ' + by + ', ';
-		}
-	        text += 'Have a bot suggestion? send me a email here: "abryan172@gmail.com".';
-		this.say(con, room, text); 
-	}, 
 	git: function(arg, by, room, con) {
 		if (this.hasRank(by, '#~') || room.charAt(0) === ',') {
 			var text = '';
@@ -168,7 +157,9 @@ exports.commands = {
 		var settable = {
 			say: 1,
 			joke: 1,
-			choose: 1,
+			choose: 1, 
+			game: 1, 
+			chess: 1,
 			usagestats: 1,
 			buzz: 1,
 			'8ball': 1,
